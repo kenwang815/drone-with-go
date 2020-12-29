@@ -1,27 +1,28 @@
-workspace:
-  base: /go
-  path: src/github.com/drone-demos/drone-with-go
+---
+kind: pipeline
+type: docker
+name: default
 
-pipeline:
-  test:
-    image: golang:latest
-    commands:
-      - go vet
-      - go test -v -cover
+steps:
+- name: test
+  image: golang:latest
+  commands:
+    - go vet
+    - go test -v -cover
 
-  build:
-    image: golang:latest
-    commands:
-      - go build -o main main.go
+- name: build
+  image: golang:latest
+  commands:
+    - go build -o main main.go
 
-  publish:
-    image: plugins/docker
-    settings:
-      registry: docker.pkg.github.com
-      repo: docker.pkg.github.com/kenwang815/drone-with-go/demo
-      auto_tag: true
-      auto_tag_suffix: linux-amd64
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
+- name: publish
+  image: plugins/docker
+  settings:
+    registry: docker.pkg.github.com
+    repo: docker.pkg.github.com/kenwang815/drone-with-go/demo
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
