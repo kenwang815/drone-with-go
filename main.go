@@ -9,5 +9,5 @@ func main() {
 
 // HelloWorld is a function that returns a string containing "hello world".
 func HelloWorld() string {
-	return "hello world"
+	return "hello world !!"
 }
