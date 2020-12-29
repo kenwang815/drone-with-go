@@ -14,7 +14,7 @@ pipeline:
     commands:
       - go build -o main main.go
 
-  - name: publish
+  publish:
     image: plugins/docker
     settings:
       registry: docker.pkg.github.com
