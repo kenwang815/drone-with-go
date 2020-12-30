@@ -25,3 +25,15 @@ steps:
     repo: docker.pkg.github.com/kenwang815/drone-with-go/drone-golang
     auto_tag: true
     auto_tag_suffix: linux-amd64
+
+- name: ssh commands
+    image: appleboy/drone-ssh
+    settings:
+      host: hyzen.ddns.net
+      username: drone
+      port: 22
+      key:
+        from_secret: ssh_key
+      script:
+        - echo hello
+        - echo world
