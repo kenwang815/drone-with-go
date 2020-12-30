@@ -26,7 +26,7 @@ steps:
     auto_tag: true
     auto_tag_suffix: linux-amd64
 
-- name: deployment
+- name: ssh-deploy
     image: appleboy/drone-ssh
     settings:
       host: hyzen.ddns.net
