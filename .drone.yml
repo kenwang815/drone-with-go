@@ -22,7 +22,7 @@ steps:
     password:
       from_secret: docker_password
     registry: docker.pkg.github.com
-    repo: docker.pkg.github.com/kenwang815/drone-with-go/demo
+    repo: docker.pkg.github.com/kenwang815/drone-with-go/drone-golang
     auto_tag: true
     auto_tag_suffix: linux-amd64
     
